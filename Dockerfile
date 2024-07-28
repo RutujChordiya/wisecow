@@ -1,17 +1,25 @@
-# Use an official Node.js runtime as the base image
-FROM node:14
+FROM alpine:latest
+RUN apk add --no-cache bash
+# Install dependencies and build tools
+RUN apk update && \
+    apk add --no-cache fortune netcat-openbsd perl perl-utils
 
-# Set the working directory
+# Download and build cowsay from source
+RUN wget -O- https://github.com/tnalpgge/rank-amateur-cowsay/archive/master.tar.gz | tar zx && \
+    cd rank-amateur-cowsay-master && \
+    ./install.sh /usr/local
+
+# Create a working directory
 WORKDIR /usr/src/app
 
-# Install dependencies
-RUN apt-get update && apt-get install -y bash fortune-mod cowsay
+# Copy the script and response file (assuming wisecow.sh and response are in the same directory as the Dockerfile)
+COPY wisecow.sh .
 
-# Copy the rest of the application code
-COPY . .
+# Make the script executable
+RUN chmod +x wisecow.sh
 
 # Expose the port the app runs on
 EXPOSE 4499
 
-# Command to run the application
+# Run the script
 CMD ["./wisecow.sh"]
