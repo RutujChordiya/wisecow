@@ -52,7 +52,10 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
         chmod 600 $HOME/.kube/config
-
+    
+    - name: List files
+      run: ls
+    
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f app-deployment.yaml --validate=false
