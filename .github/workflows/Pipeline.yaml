@@ -37,14 +37,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install kubectl
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v1
+      with:
+        version: 'latest'
+
+    - name: Configure kubectl with KUBE_CONFIG_DATA
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       run: |
-        curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
+        echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f app-deployment.yaml --validate=false
-        kubectl apply -f app-service.yaml --validate=false
-        kubectl apply -f app-ingress.yaml --validate=false
+        kubectl apply -f k8s/deployment.yaml
+        kubectl apply -f k8s/service.yaml
+        kubectl apply -f k8s/ingress.yaml
