@@ -51,7 +51,7 @@ jobs:
       run: |
         mkdir -p $HOME/.kube
         echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
-        chmod 600 $HOME/.kube/config
+        cat $HOME/.kube/config
     
     - name: List files
       run: ls
