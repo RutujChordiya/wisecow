@@ -42,10 +42,6 @@ jobs:
         curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
         chmod +x ./kubectl
         sudo mv ./kubectl /usr/local/bin/kubectl
-        
-    - name: Wait for nodes to be ready
-      run: |
-        kubectl wait --for=condition=Ready node --all --timeout=600s
 
     - name: Deploy to Kubernetes
       run: |
