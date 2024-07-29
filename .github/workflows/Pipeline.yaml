@@ -54,7 +54,9 @@ jobs:
         version: 'latest'
 
     - name: Validate kubectl configuration
-      run: kubectl version --client
+      run: |
+           kubectl version --client
+           sleep 20s
     
     - name: Deploy to Kubernetes
       run: |
