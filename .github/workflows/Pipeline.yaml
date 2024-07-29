@@ -54,7 +54,7 @@ jobs:
         cat $HOME/.kube/config
     
     - name: List files
-      run: ls
+      run: cat app-deployment.yaml
     
     - name: Deploy to Kubernetes
       run: |
