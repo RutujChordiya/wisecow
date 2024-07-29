@@ -53,8 +53,8 @@ jobs:
         echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
         cat $HOME/.kube/config
     
-    - name: List files
-      run: cat app-deployment.yaml
+    - name: kubectl check
+      run: kubectl version
     
     - name: Deploy to Kubernetes
       run: |
