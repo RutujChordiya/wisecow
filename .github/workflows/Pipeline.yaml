@@ -53,10 +53,19 @@ jobs:
       with:
         version: 'latest'
 
+    - name: Debug kubeconfig
+      run: |
+           echo "Kubeconfig content:"
+           cat $HOME/.kube/config
+           echo "Context details:"
+           kubectl config get-contexts
+           echo "Cluster info:"
+           kubectl cluster-info
+
+
     - name: Validate kubectl configuration
       run: |
            kubectl version --client
-           sleep 20s
     
     - name: Deploy to Kubernetes
       run: |
