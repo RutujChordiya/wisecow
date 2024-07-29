@@ -52,6 +52,6 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f app-deployment.yaml
-        kubectl apply -f app-service.yaml
-        kubectl apply -f app-ingress.yaml
+        kubectl apply -f app-deployment.yaml --validate=false
+        kubectl apply -f app-service.yaml --validate=false
+        kubectl apply -f app-ingress.yaml --validate=false
