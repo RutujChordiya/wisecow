@@ -1,7 +1,8 @@
-# The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
+The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
 
-# Some Key concepts covered:
-**Containerization:** It includes a Dockerfile to create a Docker image of the Wisecow application, making it portable and easy to deploy across different environments.
+# Key concepts
+****Containerization**** 
+It includes a Dockerfile to create a Docker image of the Wisecow application, making it portable and easy to deploy across different environments.
 
 **Kubernetes Deployment:** It contains Kubernetes manifest files to deploy the Dockerized Wisecow application in a Kubernetes cluster, ensuring scalability and manageability. The application is also exposed as a Kubernetes service for access.
 
@@ -13,7 +14,7 @@
 - **Kubernetes Manifest Files**: Located in the `kubernetes/` directory.
 - **CI/CD Pipeline Configuration**: GitHub Actions workflow file located in `.github/workflows/`.
 
-# Additional artifacts:
+# Additional artifacts
 
 1. **System Health logger:** `System_health_logger.sh`
    - Script to monitor and log the health of a Linux system. The script checks CPU usage, memory usage, disk space, and running processes, and sends alerts if any metrics exceed predefined thresholds.
