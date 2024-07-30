@@ -66,6 +66,12 @@ jobs:
     - name: Validate kubectl configuration
       run: |
            kubectl version --client
+           
+    - name: Clear previous deployments
+      run: |
+            kubectl delete ingress wisecow-ingress --ignore-not-found=true
+            kubectl delete deployment wisecow-app-deployment --ignore-not-found=true
+            kubectl delete svc wisecow-service --ignore-not-found=true
     
     - name: Deploy to Kubernetes
       run: |
