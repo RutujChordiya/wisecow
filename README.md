@@ -1,12 +1,14 @@
 The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
 
 # Key concepts
-****Containerization**** 
+## Containerization 
 It includes a Dockerfile to create a Docker image of the Wisecow application, making it portable and easy to deploy across different environments.
 
-**Kubernetes Deployment:** It contains Kubernetes manifest files to deploy the Dockerized Wisecow application in a Kubernetes cluster, ensuring scalability and manageability. The application is also exposed as a Kubernetes service for access.
+## Kubernetes Deployment
+It contains Kubernetes manifest files to deploy the Dockerized Wisecow application in a Kubernetes cluster, ensuring scalability and manageability. The application is also exposed as a Kubernetes service for access.
 
-**CI/CD Pipeline:** The repository integrates a GitHub Actions workflow that automates the build and push of the Docker image to a container registry. It also automates the deployment of the updated application to the Kubernetes environment, streamlining the development and deployment process.
+## CI/CD Pipeline
+The repository integrates a GitHub Actions workflow that automates the build and push of the Docker image to a container registry. It also automates the deployment of the updated application to the Kubernetes environment, streamlining the development and deployment process.
 
 # Artifacts
 - **Wisecow Application Source Code**: `wisecow.sh`
