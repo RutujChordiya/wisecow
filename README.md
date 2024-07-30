@@ -1,28 +1,22 @@
-# Cow wisdom web server
+## The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
 
-## Prerequisites
+# Some Key concepts covered:
+**Containerization:** It includes a Dockerfile to create a Docker image of the Wisecow application, making it portable and easy to deploy across different environments.
 
-```
-sudo apt install fortune-mod cowsay -y
-```
+**Kubernetes Deployment:** It contains Kubernetes manifest files to deploy the Dockerized Wisecow application in a Kubernetes cluster, ensuring scalability and manageability. The application is also exposed as a Kubernetes service for access.
 
-## How to use?
+**CI/CD Pipeline:** The repository integrates a GitHub Actions workflow that automates the build and push of the Docker image to a container registry. It also automates the deployment of the updated application to the Kubernetes environment, streamlining the development and deployment process.
 
-1. Run `./wisecow.sh`
-2. Point the browser to server port (default 4499)
+## Artifacts
+- **Wisecow Application Source Code**: 'wisecow.sh'
+- **Dockerfile**: 'Dockerfile'
+- **Kubernetes Manifest Files**: Located in the `kubernetes/` directory.
+- **CI/CD Pipeline Configuration**: GitHub Actions workflow file located in `.github/workflows/`.
 
-## What to expect?
-![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
+# Additional artifacts:
 
-# Problem Statement
-Deploy the wisecow application as a k8s app
+1. **System Health logger:** `system_health_monitor.sh`
+   - Script to monitor and log the health of a Linux system. The script checks CPU usage, memory usage, disk space, and running processes, and sends alerts if any metrics exceed predefined thresholds.
 
-## Requirement
-1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
-2. Github action for creating new image when changes are made to this repo
-3. [Challenge goal]: Enable secure TLS communication for the wisecow app.
-
-## Expected Artifacts
-1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
-2. Github repo with corresponding github action.
-3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul, SujithKasireddy
+2. **Health log file analyzer:** 'system_health_monitor.sh'
+   - Created a script to check the uptime of an application by assessing HTTP status codes. The script determines if the application is 'up' (functioning correctly) or 'down' (not available).
