@@ -1,4 +1,4 @@
-## The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
+### The repository provides a complete solution for containerizing, deploying, and managing the Wisecow application on Kubernetes.
 
 # Key concepts
 ## Containerization 
