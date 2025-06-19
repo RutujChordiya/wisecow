@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage
+  name: github-actions-test-svc
   description: backstage.io
   annotations:
     github.com/project-slug: 'backstage/backstage'
